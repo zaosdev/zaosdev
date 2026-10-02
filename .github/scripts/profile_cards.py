@@ -29,7 +29,10 @@ FG, FG2, COMMENT, MUTED = "#c0caf5", "#a9b1d6", "#565f89", "#737aa2"
 BLUE, CYAN, PURPLE, GREEN, ORANGE, YELLOW = "#7aa2f7", "#7dcfff", "#bb9af7", "#9ece6a", "#ff9e64", "#e0af68"
 SANS = "'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
 MONO = "ui-monospace, SFMono-Regular, 'JetBrains Mono', 'Cascadia Code', Menlo, Consolas, monospace"
-W, H, PAD = 400, 200, 24
+# Same footprint as the project cards: legible two-up on desktop and full width on phones.
+# M is a transparent margin that doubles as the gutter between cards in the README.
+W, H, M, PAD = 440, 224, 6, 24
+SHORT_NAMES = {"Jupyter Notebook": "Jupyter", "Visual Basic .NET": "VB.NET", "Objective-C++": "Obj-C++"}
 
 USER_QUERY = "query($login: String!) { user(login: $login) { createdAt } }"
 
@@ -133,7 +136,7 @@ def language_entries(history, max_shown=8):
 
 
 def frame(title, note, desc, body, extra_css=""):
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="title desc">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W + 2 * M}" height="{H + 2 * M}" viewBox="{-M} {-M} {W + 2 * M} {H + 2 * M}" role="img" aria-labelledby="title desc">
   <title id="title">{escape(title)}</title>
   <desc id="desc">{escape(desc)}</desc>
   <style>
@@ -146,8 +149,8 @@ def frame(title, note, desc, body, extra_css=""):
     @media (prefers-reduced-motion: reduce) {{ * {{ animation: none !important; }} }}
   </style>
   <rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="14" fill="{BG}" stroke="{BORDER}"/>
-  <text x="{PAD}" y="38" class="sans" font-size="18" font-weight="600" fill="{BLUE}">{escape(title)}</text>
-  <text x="{W - PAD}" y="38" text-anchor="end" class="mono" font-size="11" fill="{MUTED}">{escape(note)}</text>
+  <text x="{PAD}" y="42" class="sans" font-size="21" font-weight="600" fill="{BLUE}">{escape(title)}</text>
+  <text x="{W - PAD}" y="42" text-anchor="end" class="mono" font-size="12.5" fill="{MUTED}">{escape(note)}</text>
   {body}
 </svg>
 """
@@ -170,39 +173,40 @@ def render_stats(history):
     col_w = (W - 2 * PAD) / 3
     body = []
     for i, (value, unit, label, color) in enumerate(tiles):
-        x, y = PAD + (i % 3) * col_w, 98 + (i // 3) * 64
-        unit_svg = f'<tspan font-size="13" font-weight="400" fill="{MUTED}">{unit}</tspan>' if unit else ""
+        x, y = PAD + (i % 3) * col_w, 108 + (i // 3) * 74
+        unit_svg = f'<tspan font-size="15" font-weight="400" fill="{MUTED}">{unit}</tspan>' if unit else ""
         body.append(
             f'<g class="fade" style="animation-delay:{0.1 + i * 0.08:.2f}s">'
-            f'<text x="{x:.1f}" y="{y}" class="sans" font-size="26" font-weight="700" fill="{color}">{value}{unit_svg}</text>'
-            f'<text x="{x:.1f}" y="{y + 20}" class="mono" font-size="10.5" letter-spacing=".6" fill="{MUTED}">{label.upper()}</text></g>'
+            f'<text x="{x:.1f}" y="{y}" class="sans" font-size="31" font-weight="700" fill="{color}">{value}{unit_svg}</text>'
+            f'<text x="{x:.1f}" y="{y + 23}" class="mono" font-size="12.5" letter-spacing=".3" fill="{MUTED}">{label.upper()}</text></g>'
         )
     desc = ", ".join(f"{label}: {value}{unit}" for value, unit, label, _ in tiles)
     return frame("GitHub Activity", f"since {history['since']} · incl. private", desc, "\n  ".join(body))
 
 
 def render_languages(entries):
-    bar_w, bar_y = W - 2 * PAD, 56
+    bar_w, bar_y = W - 2 * PAD, 62
     segments, x = [], PAD
     for i, (_, pct, color) in enumerate(entries):
         w = bar_w * pct / 100 if i < len(entries) - 1 else PAD + bar_w - x  # last one absorbs rounding
-        segments.append(f'<rect x="{x:.2f}" y="{bar_y}" width="{w + 0.5:.2f}" height="8" fill="{color}"/>')
+        segments.append(f'<rect x="{x:.2f}" y="{bar_y}" width="{w + 0.5:.2f}" height="9" fill="{color}"/>')
         x += w
 
     legend = []
     for i, (name, pct, color) in enumerate(entries):
-        lx, ly = PAD + (i % 2) * (bar_w / 2 + 12), 98 + (i // 2) * 26
-        label = name if len(name) <= 18 else name[:17] + "…"
+        lx, ly = PAD + (i % 2) * (bar_w / 2 + 8), 110 + (i // 2) * 30
+        label = SHORT_NAMES.get(name, name)
+        label = label if len(label) <= 14 else label[:13] + "…"
         legend.append(
             f'<g class="fade" style="animation-delay:{0.3 + i * 0.06:.2f}s">'
-            f'<circle cx="{lx + 5:.1f}" cy="{ly - 4.5}" r="5" fill="{color}"/>'
-            f'<text x="{lx + 17:.1f}" y="{ly}" class="sans" font-size="13.5" fill="{FG2}">{escape(label)} '
-            f'<tspan class="mono" font-size="12" fill="{MUTED}">{pct:.1f}%</tspan></text></g>'
+            f'<circle cx="{lx + 6:.1f}" cy="{ly - 5.5}" r="6" fill="{color}"/>'
+            f'<text x="{lx + 20:.1f}" y="{ly}" class="sans" font-size="16" fill="{FG2}">{escape(label)} '
+            f'<tspan class="mono" font-size="13.5" fill="{MUTED}">{pct:.1f}%</tspan></text></g>'
         )
 
     body = (
-        f'<defs><clipPath id="bar"><rect x="{PAD}" y="{bar_y}" width="{bar_w}" height="8" rx="4"/></clipPath></defs>'
-        f'<rect x="{PAD}" y="{bar_y}" width="{bar_w}" height="8" rx="4" fill="{BORDER}"/>'
+        f'<defs><clipPath id="bar"><rect x="{PAD}" y="{bar_y}" width="{bar_w}" height="9" rx="4.5"/></clipPath></defs>'
+        f'<rect x="{PAD}" y="{bar_y}" width="{bar_w}" height="9" rx="4.5" fill="{BORDER}"/>'
         f'<g clip-path="url(#bar)"><g class="grow">{"".join(segments)}</g></g>\n  ' + "\n  ".join(legend)
     )
     css = (".grow { transform-box: fill-box; transform-origin: left; animation: grow .9s ease-out backwards; }"

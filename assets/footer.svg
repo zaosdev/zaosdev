@@ -26,6 +26,8 @@
 @keyframes ff7 { 0.0% { transform: translateY(0.00px); } 12.5% { transform: translateY(0.12px); } 25.0% { transform: translateY(0.24px); } 37.5% { transform: translateY(0.36px); } 50.0% { transform: translateY(0.49px); } 62.5% { transform: translateY(0.63px); } 75.0% { transform: translateY(0.77px); } 87.5% { transform: translateY(0.91px); } 100.0% { transform: translateY(1.06px); } } .ff7 { animation: ff7 1.8s linear infinite; }
 @keyframes ff8 { 0.0% { transform: translateY(0.00px); } 12.5% { transform: translateY(0.09px); } 25.0% { transform: translateY(0.19px); } 37.5% { transform: translateY(0.29px); } 50.0% { transform: translateY(0.39px); } 62.5% { transform: translateY(0.49px); } 75.0% { transform: translateY(0.60px); } 87.5% { transform: translateY(0.71px); } 100.0% { transform: translateY(0.83px); } } .ff8 { animation: ff8 1.8s linear infinite; }
 @keyframes ff9 { 0.0% { transform: translateY(0.00px); } 12.5% { transform: translateY(0.08px); } 25.0% { transform: translateY(0.15px); } 37.5% { transform: translateY(0.23px); } 50.0% { transform: translateY(0.32px); } 62.5% { transform: translateY(0.40px); } 75.0% { transform: translateY(0.49px); } 87.5% { transform: translateY(0.57px); } 100.0% { transform: translateY(0.66px); } } .ff9 { animation: ff9 1.8s linear infinite; }
+    .m { display: none; }
+    @media (max-width: 640px) { .d { display: none; } .m { display: inline; } }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   </style>
   <g clip-path="url(#frame)">
@@ -81,7 +83,8 @@
       <line class="ff9" x1="0" y1="84.12" x2="1200" y2="84.12"/>
     </g>
     <rect x="0" y="77" width="1200" height="1.5" fill="url(#horizon)"/>
-    <text x="600.0" y="50" text-anchor="middle" class="mono" font-size="17" fill="#a9b1d6"><tspan fill="#9ece6a">$</tspan> echo <tspan fill="#9ece6a">"Thanks for stopping by!"</tspan> <tspan class="cursor" fill="#7aa2f7">▌</tspan></text>
+    <text class="d mono" x="600.0" y="50" text-anchor="middle" font-size="17" fill="#a9b1d6"><tspan fill="#9ece6a">$</tspan> echo <tspan fill="#9ece6a">"Thanks for stopping by!"</tspan> <tspan class="cursor" fill="#7aa2f7">▌</tspan></text>
+    <text class="m mono" x="600.0" y="58" text-anchor="middle" font-size="44" fill="#a9b1d6"><tspan fill="#9ece6a">$</tspan> echo <tspan fill="#9ece6a">"Thanks for stopping by!"</tspan></text>
   </g>
   <rect x=".75" y=".75" width="1198.5" height="128.5" rx="17.5" fill="none" stroke="#292e42" stroke-width="1.5"/>
 </svg>

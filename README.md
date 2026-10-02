@@ -27,18 +27,31 @@
 
 ```ts
 const zaos = {
-  name:      "Juan Manuel González Santos",
-  role:      ["Full-Stack Software Engineer", "Multimedia Engineer"],
-  basedIn:   "Alicante, Spain 🇪🇸 · CET (UTC+1)",
-  education: [
-    "MSc in Artificial Intelligence · University of Alicante · thesis 10/10",
-    "BSc in Multimedia Engineering · University of Alicante · thesis 9/10",
+  name: "Juan Manuel González Santos",
+  basedIn: "Alicante, Spain 🇪🇸",
+  role: [
+    "Full-Stack Software Engineer",
+    "Multimedia Engineer",
   ],
-  currently: "Freelance tech partner and sole engineer behind Vidareal",
-  focus:     ["Web & Mobile", "3D / VR (WebXR)", "Deep Learning", "Self-hosted infra"],
-  mission:   "Bringing AI into real products that people actually use",
-  speaks:    { spanish: "native", english: "B2" },
-  openTo:    ["Job offers", "Freelance projects", "Remote roles across Europe 🇪🇺"],
+  education: {
+    msc: "AI · thesis 10/10",
+    bsc: "Multimedia · thesis 9/10",
+    at: "University of Alicante",
+  },
+  currently: "Sole engineer @ Vidareal",
+  focus: [
+    "Web & Mobile",
+    "3D / VR",
+    "Deep Learning",
+    "Self-hosted infra",
+  ],
+  goal: "Bring AI into real products",
+  speaks: { es: "native", en: "B2" },
+  openTo: [
+    "Job offers",
+    "Freelance projects",
+    "Remote roles across Europe 🇪🇺",
+  ],
 } as const;
 ```
 
@@ -48,13 +61,12 @@ const zaos = {
 
 ## 🚀 Featured projects
 
+<!-- Fixed-width cards: two per row on desktop, one per row on phones -->
 <p align="center">
-  <a href="https://vidareal.es"><img src="assets/project-vidareal.svg" width="49%" alt="Vidareal: VR cognitive-stimulation platform for elderly care on Meta Quest and Pico, with real-time multi-headset control and Mux video streaming"/></a>
-  <img src="assets/project-tfm.svg" width="49%" alt="MSc thesis, graded 10/10: deep learning architectures for stock price prediction"/>
-</p>
-<p align="center">
-  <a href="https://zaos.dev"><img src="assets/project-zaosdev.svg" width="49%" alt="zaos.dev: personal portfolio and project hub, in development"/></a>
-  <a href="https://rua.ua.es/entities/publication/ee6fe8af-ed5b-4bf1-a063-3dae75d93c02"><img src="assets/project-boxbeats.svg" width="49%" alt="Box Beats, BSc thesis graded 9/10: Beat Saber-inspired VR rhythm game built in Unreal Engine 5"/></a>
+  <a href="https://vidareal.es"><img src="assets/project-vidareal.svg" width="400" alt="Vidareal: VR cognitive-stimulation platform for elderly care on Meta Quest and Pico, with real-time multi-headset control and Mux video streaming"/></a>
+  <img src="assets/project-tfm.svg" width="400" alt="MSc thesis, graded 10/10: deep learning architectures for stock price prediction"/>
+  <a href="https://zaos.dev"><img src="assets/project-zaosdev.svg" width="400" alt="zaos.dev: personal portfolio and project hub, in development"/></a>
+  <a href="https://rua.ua.es/entities/publication/ee6fe8af-ed5b-4bf1-a063-3dae75d93c02"><img src="assets/project-boxbeats.svg" width="400" alt="Box Beats, BSc thesis graded 9/10: Beat Saber-inspired VR rhythm game built in Unreal Engine 5"/></a>
 </p>
 
 <br/>
@@ -65,8 +77,8 @@ const zaos = {
 
 <table align="center">
   <tr>
-    <td align="center" width="210"><b>💻 Languages</b></td>
-    <td>
+    <td align="center">
+      <b>💻 Languages</b><br/>
       <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
       <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
       <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++"/>
@@ -74,8 +86,8 @@ const zaos = {
     </td>
   </tr>
   <tr>
-    <td align="center" width="210"><b>🎨 Frontend &amp; Mobile</b></td>
-    <td>
+    <td align="center">
+      <b>🎨 Frontend &amp; Mobile</b><br/>
       <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React"/>
       <img src="https://img.shields.io/badge/Astro-BC52EE?style=for-the-badge&logo=astro&logoColor=white" alt="Astro"/>
       <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS"/>
@@ -84,8 +96,8 @@ const zaos = {
     </td>
   </tr>
   <tr>
-    <td align="center" width="210"><b>🥽 3D &amp; XR</b></td>
-    <td>
+    <td align="center">
+      <b>🥽 3D &amp; XR</b><br/>
       <img src="https://img.shields.io/badge/A--Frame-EF2D5E?style=for-the-badge&logo=aframe&logoColor=white" alt="A-Frame"/>
       <img src="https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white" alt="Three.js"/>
       <img src="https://img.shields.io/badge/Unreal_Engine_5-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white" alt="Unreal Engine 5"/>
@@ -93,8 +105,8 @@ const zaos = {
     </td>
   </tr>
   <tr>
-    <td align="center" width="210"><b>⚙️ Backend &amp; Data</b></td>
-    <td>
+    <td align="center">
+      <b>⚙️ Backend &amp; Data</b><br/>
       <img src="https://img.shields.io/badge/Bun-000000?style=for-the-badge&logo=bun&logoColor=FBF0DF" alt="Bun"/>
       <img src="https://img.shields.io/badge/Hono-E36002?style=for-the-badge&logo=hono&logoColor=white" alt="Hono"/>
       <img src="https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"/>
@@ -105,8 +117,8 @@ const zaos = {
     </td>
   </tr>
   <tr>
-    <td align="center" width="210"><b>🧠 AI &amp; ML</b></td>
-    <td>
+    <td align="center">
+      <b>🧠 AI &amp; ML</b><br/>
       <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch"/>
       <img src="https://img.shields.io/badge/CUDA-76B900?style=for-the-badge&logo=nvidia&logoColor=white" alt="CUDA"/>
       <img src="https://img.shields.io/badge/Transformers-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face Transformers"/>
@@ -114,8 +126,8 @@ const zaos = {
     </td>
   </tr>
   <tr>
-    <td align="center" width="210"><b>☁️ Infra &amp; DevOps</b></td>
-    <td>
+    <td align="center">
+      <b>☁️ Infra &amp; DevOps</b><br/>
       <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
       <img src="assets/badges/dokploy.svg" alt="Dokploy"/>
       <img src="assets/badges/netbird.svg" alt="NetBird"/>
@@ -135,8 +147,8 @@ const zaos = {
 
 <!-- Generated daily by .github/workflows/profile.yml (.github/scripts/profile_cards.py + Platane/snk) and published to the `output` branch -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/zaosdev/zaosdev/output/stats.svg" width="49%" alt="GitHub activity: commits, contributions, repositories and streaks, including private work"/>
-  <img src="https://raw.githubusercontent.com/zaosdev/zaosdev/output/top-langs.svg" width="49%" alt="Most used languages, weighted by my commits"/>
+  <img src="https://raw.githubusercontent.com/zaosdev/zaosdev/output/stats.svg" width="400" alt="GitHub activity: commits, contributions, repositories and streaks, including private work"/>
+  <img src="https://raw.githubusercontent.com/zaosdev/zaosdev/output/top-langs.svg" width="400" alt="Most used languages, weighted by my commits"/>
 </p>
 
 <p align="center">

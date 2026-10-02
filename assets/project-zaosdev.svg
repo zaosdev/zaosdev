@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="520" height="272" viewBox="0 0 520 272" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="452" height="292" viewBox="-6 -6 452 292" role="img" aria-labelledby="title desc">
   <title id="title">zaos.dev</title>
-  <desc id="desc">Portfolio &amp; project hub. My personal portfolio and the home for everything I build, from VR experiences to AI models. Under construction. Shipping soon.</desc>
+  <desc id="desc">Portfolio &amp; project hub. My portfolio and the home for everything I build, from VR experiences to AI models. Under construction. Shipping soon.</desc>
   <defs>
-    <clipPath id="frame"><rect width="520" height="272" rx="14"/></clipPath>
+    <clipPath id="frame"><rect width="440" height="280" rx="14"/></clipPath>
     <radialGradient id="glow" cx="0" cy="0" r=".9"><stop offset="0" stop-color="#7aa2f7" stop-opacity=".16"/><stop offset="1" stop-color="#7aa2f7" stop-opacity="0"/></radialGradient>
   </defs>
   <style>
@@ -18,20 +18,20 @@
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   </style>
   <g clip-path="url(#frame)">
-    <rect width="520" height="272" fill="#1a1b27"/>
-    <rect width="520" height="272" fill="url(#glow)"/>
-    <g transform="translate(24,20)">
+    <rect width="440" height="280" fill="#1a1b27"/>
+    <rect width="440" height="280" fill="url(#glow)"/>
+    <g transform="translate(22,20) scale(1.1)">
       <rect width="40" height="40" rx="10" fill="#7aa2f7" fill-opacity=".10" stroke="#7aa2f7" stroke-opacity=".35"/>
       <path d="M10 14l7 6-7 6" fill="none" stroke="#7aa2f7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
       <rect class="cursor" x="20" y="25" width="11" height="2.8" rx="1.2" fill="#7aa2f7"/>
     </g>
-    <rect x="356.4" y="25" width="139.6" height="24" rx="12" fill="#7aa2f7" fill-opacity=".10" stroke="#7aa2f7" stroke-opacity=".45"/>
-    <circle class="pulse" cx="371.4" cy="37" r="4" fill="#7aa2f7"/>
-    <text x="382.4" y="41" class="mono" font-size="11" letter-spacing=".8" fill="#7aa2f7">IN DEVELOPMENT</text>
-    <text x="28" y="102" class="sans" font-size="24" font-weight="700" fill="#c0caf5">zaos.dev</text>
-    <text x="28" y="126" class="mono" font-size="13" fill="#737aa2">Portfolio &amp; project hub</text>
-    <text x="28" y="162" class="sans" font-size="15.5" fill="#a9b1d6">My personal portfolio and the home for everything</text><text x="28" y="186" class="sans" font-size="15.5" fill="#a9b1d6">I build, from VR experiences to AI models.</text><text x="28" y="210" class="sans" font-size="15.5" fill="#a9b1d6">Under construction. Shipping soon.</text>
-    <text x="28" y="244" class="mono" font-size="14" fill="#7aa2f7">→ zaos.dev</text>
+    <rect x="264.6" y="28" width="153.4" height="28" rx="14" fill="#7aa2f7" fill-opacity=".10" stroke="#7aa2f7" stroke-opacity=".45"/>
+    <circle class="pulse" cx="280.6" cy="42" r="4.5" fill="#7aa2f7"/>
+    <text x="293.6" y="46.5" class="mono" font-size="12.5" letter-spacing=".6" fill="#7aa2f7">IN DEVELOPMENT</text>
+    <text x="24" y="110" class="sans" font-size="27" font-weight="700" fill="#c0caf5">zaos.dev</text>
+    <text x="24" y="136" class="mono" font-size="14" fill="#737aa2">Portfolio &amp; project hub</text>
+    <text x="24" y="172" class="sans" font-size="16.5" fill="#a9b1d6">My portfolio and the home for everything</text><text x="24" y="197" class="sans" font-size="16.5" fill="#a9b1d6">I build, from VR experiences to AI models.</text><text x="24" y="222" class="sans" font-size="16.5" fill="#a9b1d6">Under construction. Shipping soon.</text>
+    <text x="24" y="258" class="mono" font-size="15" fill="#7aa2f7">→ zaos.dev</text>
   </g>
-  <rect x=".5" y=".5" width="519" height="271" rx="13.5" fill="none" stroke="#292e42"/>
+  <rect x=".5" y=".5" width="439" height="279" rx="13.5" fill="none" stroke="#292e42"/>
 </svg>

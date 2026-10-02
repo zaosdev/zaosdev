@@ -21,6 +21,7 @@ BASE_CSS = f"""
     .cursor {{ animation: blink 1.1s steps(1) infinite; }}
     .pulse {{ animation: pulse 2.4s ease-in-out infinite; }}
 """
+BREAKPOINT = 640  # rendered width (px) below which the SVGs switch to their phone layout
 REDUCED = "@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }"
 
 
@@ -72,10 +73,10 @@ def header():
 
     chips, x = [], 64
     for label, col in [("WEB & MOBILE", CYAN), ("3D / VR", PURPLE), ("DEEP LEARNING", ORANGE), ("SELF-HOSTED INFRA", GREEN)]:
-        w = len(label) * 8.8 + 30
+        w = len(label) * 10 + 32
         chips.append(
-            f'<rect x="{x}" y="318" width="{w:.0f}" height="30" rx="15" fill="{col}" fill-opacity=".08" stroke="{col}" stroke-opacity=".45"/>'
-            f'<text x="{x + w / 2:.1f}" y="338" text-anchor="middle" class="mono" font-size="13" letter-spacing="1" fill="{col}">{escape(label)}</text>'
+            f'<rect x="{x}" y="316" width="{w:.0f}" height="34" rx="17" fill="{col}" fill-opacity=".08" stroke="{col}" stroke-opacity=".45"/>'
+            f'<text x="{x + w / 2:.1f}" y="338.5" text-anchor="middle" class="mono" font-size="15" letter-spacing="1" fill="{col}">{escape(label)}</text>'
         )
         x += w + 10
 
@@ -97,6 +98,9 @@ def header():
     .sig {{ stroke: {CYAN}; stroke-width: 2.6; stroke-linecap: round; stroke-dasharray: 14 1000; stroke-dashoffset: 14; animation: sig 2.6s linear infinite; }}
     @keyframes sig {{ from {{ stroke-dashoffset: 14; }} to {{ stroke-dashoffset: -260; }} }}
     {floor_css}
+    /* phone layout: the query sees the image's rendered width, not the page's */
+    .m {{ display: none; }}
+    @media (max-width: {BREAKPOINT}px) {{ .d {{ display: none; }} .m {{ display: inline; }} }}
     {REDUCED}
   </style>
   <g clip-path="url(#frame)">
@@ -113,23 +117,36 @@ def header():
     <!-- terminal title bar -->
     <rect width="{W}" height="52" fill="{BAR}"/>
     <rect y="52" width="{W}" height="1" fill="{BORDER}"/>
-    <circle cx="30" cy="26" r="6.5" fill="{RED}" fill-opacity=".85"/>
-    <circle cx="52" cy="26" r="6.5" fill="{YELLOW}" fill-opacity=".85"/>
-    <circle cx="74" cy="26" r="6.5" fill="{GREEN}" fill-opacity=".85"/>
-    <text x="{W / 2}" y="31" text-anchor="middle" class="mono" font-size="13" fill="{MUTED}">~/zaosdev</text>
-    <text x="{W - 28}" y="31" text-anchor="end" class="mono" font-size="13" fill="{MUTED}">alicante, es · utc+1</text>
 
-    <!-- intro -->
-    <text x="64" y="112" class="mono" font-size="18" fill="{FG2}"><tspan fill="{GREEN}">$</tspan> whoami <tspan class="cursor" fill="{BLUE}">▌</tspan></text>
-    <text x="62" y="186" class="sans" font-size="62" font-weight="700" fill="{FG}" letter-spacing="-1">Juan Manuel</text>
-    <text x="62" y="254" class="sans" font-size="62" font-weight="700" fill="url(#nameGrad)" letter-spacing="-1">González Santos</text>
-    <text x="64" y="294" class="sans" font-size="20" fill="{FG2}">Full-Stack Software Engineer <tspan fill="{COMMENT}">·</tspan> Multimedia Engineer <tspan fill="{COMMENT}">·</tspan> MSc in AI</text>
-    {''.join(chips)}
+    <g class="d">
+      <circle cx="30" cy="26" r="6.5" fill="{RED}" fill-opacity=".85"/>
+      <circle cx="52" cy="26" r="6.5" fill="{YELLOW}" fill-opacity=".85"/>
+      <circle cx="74" cy="26" r="6.5" fill="{GREEN}" fill-opacity=".85"/>
+      <text x="{W / 2}" y="31" text-anchor="middle" class="mono" font-size="13" fill="{MUTED}">~/zaosdev</text>
+      <text x="{W - 28}" y="31" text-anchor="end" class="mono" font-size="13" fill="{MUTED}">alicante, es · utc+1</text>
 
-    <!-- neural network -->
-    <g class="edges">{''.join(edges)}</g>
-    <g>{''.join(pulses)}</g>
-    {''.join(nodes)}
+      <text x="64" y="112" class="mono" font-size="18" fill="{FG2}"><tspan fill="{GREEN}">$</tspan> whoami <tspan class="cursor" fill="{BLUE}">▌</tspan></text>
+      <text x="62" y="186" class="sans" font-size="62" font-weight="700" fill="{FG}" letter-spacing="-1">Juan Manuel</text>
+      <text x="62" y="254" class="sans" font-size="62" font-weight="700" fill="url(#nameGrad)" letter-spacing="-1">González Santos</text>
+      <text x="64" y="294" class="sans" font-size="22" fill="{FG2}">Full-Stack Software Engineer <tspan fill="{COMMENT}">·</tspan> Multimedia Engineer <tspan fill="{COMMENT}">·</tspan> MSc in AI</text>
+      {''.join(chips)}
+
+      <g class="edges">{''.join(edges)}</g>
+      <g>{''.join(pulses)}</g>
+      {''.join(nodes)}
+    </g>
+
+    <g class="m">
+      <circle cx="36" cy="26" r="11" fill="{RED}" fill-opacity=".85"/>
+      <circle cx="70" cy="26" r="11" fill="{YELLOW}" fill-opacity=".85"/>
+      <circle cx="104" cy="26" r="11" fill="{GREEN}" fill-opacity=".85"/>
+      <text x="{W - 40}" y="38" text-anchor="end" class="mono" font-size="34" fill="{MUTED}">alicante, es</text>
+
+      <text x="64" y="112" class="mono" font-size="44" fill="{FG2}"><tspan fill="{GREEN}">$</tspan> whoami <tspan class="cursor" fill="{BLUE}">▌</tspan></text>
+      <text x="58" y="206" class="sans" font-size="104" font-weight="700" fill="{FG}" letter-spacing="-2">Juan Manuel</text>
+      <text x="58" y="304" class="sans" font-size="104" font-weight="700" fill="url(#nameGrad)" letter-spacing="-2">González Santos</text>
+      <text x="64" y="354" class="sans" font-size="46" fill="{FG2}">Full-Stack Engineer <tspan fill="{COMMENT}">·</tspan> MSc in AI</text>
+    </g>
   </g>
   <rect x=".75" y=".75" width="{W - 1.5}" height="{H - 1.5}" rx="19.5" fill="none" stroke="{BORDER}" stroke-width="1.5"/>
 </svg>
@@ -153,6 +170,8 @@ def footer():
   <style>{BASE_CSS}
     .grid line {{ stroke: {BLUE}; stroke-opacity: .5; stroke-width: 1; }}
     {floor_css}
+    .m {{ display: none; }}
+    @media (max-width: {BREAKPOINT}px) {{ .d {{ display: none; }} .m {{ display: inline; }} }}
     {REDUCED}
   </style>
   <g clip-path="url(#frame)">
@@ -162,7 +181,8 @@ def footer():
       {floor_lines}
     </g>
     <rect x="0" y="{HZ - 1}" width="{W}" height="1.5" fill="url(#horizon)"/>
-    <text x="{W / 2}" y="50" text-anchor="middle" class="mono" font-size="17" fill="{FG2}"><tspan fill="{GREEN}">$</tspan> echo <tspan fill="{GREEN}">"Thanks for stopping by!"</tspan> <tspan class="cursor" fill="{BLUE}">▌</tspan></text>
+    <text class="d mono" x="{W / 2}" y="50" text-anchor="middle" font-size="17" fill="{FG2}"><tspan fill="{GREEN}">$</tspan> echo <tspan fill="{GREEN}">"Thanks for stopping by!"</tspan> <tspan class="cursor" fill="{BLUE}">▌</tspan></text>
+    <text class="m mono" x="{W / 2}" y="58" text-anchor="middle" font-size="44" fill="{FG2}"><tspan fill="{GREEN}">$</tspan> echo <tspan fill="{GREEN}">"Thanks for stopping by!"</tspan></text>
   </g>
   <rect x=".75" y=".75" width="{W - 1.5}" height="{H - 1.5}" rx="17.5" fill="none" stroke="{BORDER}" stroke-width="1.5"/>
 </svg>
@@ -187,35 +207,37 @@ ICONS = {
 
 
 def card(fname, icon, accent, pill, title, subtitle, lines, chips=None, link=None):
-    W, H = 520, 272
+    # Sized to stay legible both two-up on desktop (~400px each) and full width on phones (~330px).
+    # M is a transparent margin that doubles as the gutter between cards in the README.
+    W, H, M, P = 440, 280, 6, 24
     pill_text, pill_color, pill_kind = pill
-    pw = len(pill_text) * 7.4 + 36
-    px = W - 24 - pw
+    pw = len(pill_text) * 8.1 + 40
+    px = W - 22 - pw
     if pill_kind == "star":
-        mark = f'<path transform="translate({px + 15},37) scale(.6) translate(-8,-8.4)" d="M8 0l2.4 5 5.6.8-4 3.9 1 5.5L8 12.6 3 15.2l1-5.5-4-3.9L5.6 5Z" fill="{pill_color}"/>'
+        mark = f'<path transform="translate({px + 16:.1f},42) scale(.7) translate(-8,-8.4)" d="M8 0l2.4 5 5.6.8-4 3.9 1 5.5L8 12.6 3 15.2l1-5.5-4-3.9L5.6 5Z" fill="{pill_color}"/>'
     else:
-        mark = f'<circle class="pulse" cx="{px + 15}" cy="{37}" r="4" fill="{pill_color}"/>'
+        mark = f'<circle class="pulse" cx="{px + 16:.1f}" cy="42" r="4.5" fill="{pill_color}"/>'
 
     body = "".join(
-        f'<text x="28" y="{162 + i * 24}" class="sans" font-size="15.5" fill="{FG2}">{escape(t)}</text>' for i, t in enumerate(lines)
+        f'<text x="{P}" y="{172 + i * 25}" class="sans" font-size="16.5" fill="{FG2}">{escape(t)}</text>' for i, t in enumerate(lines)
     )
 
     bottom = ""
     if chips:
-        x = 28
+        x = P
         for label, col in chips:
-            w = len(label) * 7.4 + 32
+            w = len(label) * 7.8 + 32
             bottom += (
-                f'<rect x="{x:.1f}" y="226" width="{w:.1f}" height="26" rx="13" fill="{FG}" fill-opacity=".04" stroke="{BORDER}"/>'
-                f'<circle cx="{x + 14:.1f}" cy="239" r="4" fill="{col}"/>'
-                f'<text x="{x + 24:.1f}" y="243.5" class="mono" font-size="12" fill="{FG2}">{escape(label)}</text>'
+                f'<rect x="{x:.1f}" y="238" width="{w:.1f}" height="28" rx="14" fill="{FG}" fill-opacity=".04" stroke="{BORDER}"/>'
+                f'<circle cx="{x + 14:.1f}" cy="252" r="4.5" fill="{col}"/>'
+                f'<text x="{x + 24:.1f}" y="256.5" class="mono" font-size="13" fill="{FG2}">{escape(label)}</text>'
             )
             x += w + 8
-        assert x - 8 <= W - 28, f"chips overflow in {fname}: {x}"
+        assert x - 8 <= W - P, f"chips overflow in {fname}: {x - 8:.0f} > {W - P}"
     if link:
-        bottom += f'<text x="28" y="244" class="mono" font-size="14" fill="{BLUE}">→ {escape(link)}</text>'
+        bottom += f'<text x="{P}" y="258" class="mono" font-size="15" fill="{BLUE}">→ {escape(link)}</text>'
 
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="title desc">
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W + 2 * M}" height="{H + 2 * M}" viewBox="{-M} {-M} {W + 2 * M} {H + 2 * M}" role="img" aria-labelledby="title desc">
   <title id="title">{escape(title)}</title>
   <desc id="desc">{escape(subtitle)}. {escape(' '.join(lines))}</desc>
   <defs>
@@ -230,15 +252,15 @@ def card(fname, icon, accent, pill, title, subtitle, lines, chips=None, link=Non
   <g clip-path="url(#frame)">
     <rect width="{W}" height="{H}" fill="{BG}"/>
     <rect width="{W}" height="{H}" fill="url(#glow)"/>
-    <g transform="translate(24,20)">
+    <g transform="translate(22,20) scale(1.1)">
       <rect width="40" height="40" rx="10" fill="{accent}" fill-opacity=".10" stroke="{accent}" stroke-opacity=".35"/>
       {icon}
     </g>
-    <rect x="{px:.1f}" y="25" width="{pw:.1f}" height="24" rx="12" fill="{pill_color}" fill-opacity=".10" stroke="{pill_color}" stroke-opacity=".45"/>
+    <rect x="{px:.1f}" y="28" width="{pw:.1f}" height="28" rx="14" fill="{pill_color}" fill-opacity=".10" stroke="{pill_color}" stroke-opacity=".45"/>
     {mark}
-    <text x="{px + 26:.1f}" y="41" class="mono" font-size="11" letter-spacing=".8" fill="{pill_color}">{escape(pill_text)}</text>
-    <text x="28" y="102" class="sans" font-size="24" font-weight="700" fill="{FG}">{escape(title)}</text>
-    <text x="28" y="126" class="mono" font-size="13" fill="{MUTED}">{escape(subtitle)}</text>
+    <text x="{px + 29:.1f}" y="46.5" class="mono" font-size="12.5" letter-spacing=".6" fill="{pill_color}">{escape(pill_text)}</text>
+    <text x="{P}" y="110" class="sans" font-size="27" font-weight="700" fill="{FG}">{escape(title)}</text>
+    <text x="{P}" y="136" class="mono" font-size="14" fill="{MUTED}">{escape(subtitle)}</text>
     {body}
     {bottom}
   </g>
@@ -253,23 +275,23 @@ footer()
 card(
     "project-vidareal", ICONS["vr"], CYAN, ("IN PRODUCTION", GREEN, "dot"),
     "Vidareal", "vidareal.es · VR for elderly care",
-    ["VR cognitive-stimulation platform for elderly care on",
-     "Meta Quest & Pico: real-time control of multiple",
-     "headsets from a phone, with video streamed via Mux."],
+    ["VR cognitive stimulation for elderly care,",
+     "on Meta Quest & Pico. Staff drive several",
+     "headsets live from a phone; video via Mux."],
     chips=[("A-Frame", "#EF2D5E"), ("WebSockets", CYAN), ("Mux", "#FA50B5"), ("Bun + Hono", ORANGE)],
 )
 card(
     "project-tfm", ICONS["candles"], PURPLE, ("GRADE 10/10", YELLOW, "star"),
     "Deep Learning for Markets", "MSc thesis · University of Alicante",
-    ["Neural network architectures for stock price",
-     "prediction, trained on large-scale historical time",
-     "series and benchmarked against each other."],
+    ["Neural network architectures for stock",
+     "price prediction, trained on large-scale",
+     "historical time series and benchmarked."],
     chips=[("Python", "#4B8BBE"), ("PyTorch", "#EE4C2C"), ("pandas", "#FFCA00"), ("Time series", PURPLE)],
 )
 card(
     "project-zaosdev", ICONS["terminal"], BLUE, ("IN DEVELOPMENT", BLUE, "dot"),
     "zaos.dev", "Portfolio & project hub",
-    ["My personal portfolio and the home for everything",
+    ["My portfolio and the home for everything",
      "I build, from VR experiences to AI models.",
      "Under construction. Shipping soon."],
     link="zaos.dev",
@@ -277,9 +299,9 @@ card(
 card(
     "project-boxbeats", ICONS["eq"], ORANGE, ("GRADE 9/10", YELLOW, "star"),
     "Box Beats", "BSc thesis · VR rhythm game",
-    ["Beat Saber-inspired VR rhythm game: punch blocks",
-     "to the beat, with punching bag and speed ball modes",
-     "and a global per-level leaderboard."],
-    chips=[("Unreal Engine 5", FG), ("VR", PURPLE), ("REST API", CYAN), ("Self-hosted", GREEN)],
+    ["Beat Saber-inspired VR rhythm game: punch",
+     "blocks to the beat, with punching bag and",
+     "speed ball modes and a global leaderboard."],
+    chips=[("Unreal Engine 5", FG), ("VR", PURPLE), ("REST API", CYAN)],
 )
 print("done:", sorted(os.listdir(OUT)))
