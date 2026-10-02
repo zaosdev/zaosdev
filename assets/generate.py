@@ -321,8 +321,8 @@ card(
     "project-hellgeon", ICONS["flame"], RED, ("YEAR-LONG PROJECT", ORANGE, "play"),
     "Hellgeon", "Team of 5 · built before AI assistants",
     ["Low-poly 3D bullet hell built from scratch",
-     "over a full year: our own C++ / OpenGL",
-     "engine, gameplay, 3D models and audio."],
+     "in a year on our own ECS engine in C++",
+     "and OpenGL, plus gameplay, models and audio."],
     chips=[("C++", "#f34b7d"), ("OpenGL", "#5586A4"), ("Blender", "#F5792A"), ("Win + Linux", FG)],
 )
 card(

@@ -45,6 +45,10 @@ const zaos = {
     "Deep Learning",
     "Self-hosted infra",
   ],
+  gameDev: [
+    "ECS engines in C++ & Z80 asm",
+    "OpenGL 3D engine, pre-AI era",
+  ],
   goal: "Bring AI into real products",
   speaks: { es: "native", en: "B2" },
   openTo: [

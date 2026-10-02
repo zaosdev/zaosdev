@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="452" height="292" viewBox="-6 -6 452 292" role="img" aria-labelledby="title desc">
   <title id="title">Hellgeon</title>
-  <desc id="desc">Team of 5 · built before AI assistants. Low-poly 3D bullet hell built from scratch over a full year: our own C++ / OpenGL engine, gameplay, 3D models and audio.</desc>
+  <desc id="desc">Team of 5 · built before AI assistants. Low-poly 3D bullet hell built from scratch in a year on our own ECS engine in C++ and OpenGL, plus gameplay, models and audio.</desc>
   <defs>
     <clipPath id="frame"><rect width="440" height="280" rx="14"/></clipPath>
     <radialGradient id="glow" cx="0" cy="0" r=".9"><stop offset="0" stop-color="#f7768e" stop-opacity=".16"/><stop offset="1" stop-color="#f7768e" stop-opacity="0"/></radialGradient>
@@ -35,7 +35,7 @@
     <text x="269.3" y="46.5" class="mono" font-size="12.5" letter-spacing=".6" fill="#ff9e64">YEAR-LONG PROJECT</text>
     <text x="24" y="110" class="sans" font-size="27" font-weight="700" fill="#c0caf5">Hellgeon</text>
     <text x="24" y="136" class="mono" font-size="14" fill="#737aa2">Team of 5 · built before AI assistants</text>
-    <text x="24" y="172" class="sans" font-size="16.5" fill="#a9b1d6">Low-poly 3D bullet hell built from scratch</text><text x="24" y="197" class="sans" font-size="16.5" fill="#a9b1d6">over a full year: our own C++ / OpenGL</text><text x="24" y="222" class="sans" font-size="16.5" fill="#a9b1d6">engine, gameplay, 3D models and audio.</text>
+    <text x="24" y="172" class="sans" font-size="16.5" fill="#a9b1d6">Low-poly 3D bullet hell built from scratch</text><text x="24" y="197" class="sans" font-size="16.5" fill="#a9b1d6">in a year on our own ECS engine in C++</text><text x="24" y="222" class="sans" font-size="16.5" fill="#a9b1d6">and OpenGL, plus gameplay, models and audio.</text>
     <rect x="24.0" y="238" width="55.4" height="28" rx="14" fill="#c0caf5" fill-opacity=".04" stroke="#292e42"/><circle cx="38.0" cy="252" r="4.5" fill="#f34b7d"/><text x="48.0" y="256.5" class="mono" font-size="13" fill="#a9b1d6">C++</text><rect x="87.4" y="238" width="78.8" height="28" rx="14" fill="#c0caf5" fill-opacity=".04" stroke="#292e42"/><circle cx="101.4" cy="252" r="4.5" fill="#5586A4"/><text x="111.4" y="256.5" class="mono" font-size="13" fill="#a9b1d6">OpenGL</text><rect x="174.2" y="238" width="86.6" height="28" rx="14" fill="#c0caf5" fill-opacity=".04" stroke="#292e42"/><circle cx="188.2" cy="252" r="4.5" fill="#F5792A"/><text x="198.2" y="256.5" class="mono" font-size="13" fill="#a9b1d6">Blender</text><rect x="268.8" y="238" width="117.8" height="28" rx="14" fill="#c0caf5" fill-opacity=".04" stroke="#292e42"/><circle cx="282.8" cy="252" r="4.5" fill="#c0caf5"/><text x="292.8" y="256.5" class="mono" font-size="13" fill="#a9b1d6">Win + Linux</text>
   </g>
   <rect x=".5" y=".5" width="439" height="279" rx="13.5" fill="none" stroke="#292e42"/>
