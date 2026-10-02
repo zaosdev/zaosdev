@@ -65,8 +65,10 @@ const zaos = {
 <p align="center">
   <a href="https://vidareal.es"><img src="assets/project-vidareal.svg" width="400" alt="Vidareal: VR cognitive-stimulation platform for elderly care on Meta Quest and Pico, with real-time multi-headset control and Mux video streaming"/></a>
   <img src="assets/project-tfm.svg" width="400" alt="MSc thesis, graded 10/10: deep learning architectures for stock price prediction"/>
-  <a href="https://zaos.dev"><img src="assets/project-zaosdev.svg" width="400" alt="zaos.dev: personal portfolio and project hub, in development"/></a>
+  <a href="https://triplefail.itch.io/geometry-escape"><img src="assets/project-geometry-escape.svg" width="400" alt="Geometry Escape: arcade escape game for the Amstrad CPC written in Z80 assembly, CPCRetroDev 2022 entry"/></a>
+  <a href="https://purplesprite.itch.io/hellgeon"><img src="assets/project-hellgeon.svg" width="400" alt="Hellgeon: low-poly 3D bullet hell built from scratch by a team of 5 with a custom C++/OpenGL engine"/></a>
   <a href="https://rua.ua.es/entities/publication/ee6fe8af-ed5b-4bf1-a063-3dae75d93c02"><img src="assets/project-boxbeats.svg" width="400" alt="Box Beats, BSc thesis graded 9/10: Beat Saber-inspired VR rhythm game built in Unreal Engine 5"/></a>
+  <a href="https://zaos.dev"><img src="assets/project-zaosdev.svg" width="400" alt="zaos.dev: personal portfolio and project hub, in development"/></a>
 </p>
 
 <br/>
@@ -120,7 +122,7 @@ const zaos = {
     <td align="center">
       <b>🧠 AI &amp; ML</b><br/>
       <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch"/>
-      <img src="https://img.shields.io/badge/CUDA-76B900?style=for-the-badge&logo=nvidia&logoColor=white" alt="CUDA"/>
+      <img src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="pandas"/>
       <img src="https://img.shields.io/badge/Transformers-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face Transformers"/>
       <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white" alt="Jupyter"/>
     </td>

@@ -199,6 +199,12 @@ ICONS = {
       <polyline points="6,30 13,24 20,26 27,17 35,9" fill="none" stroke="{PURPLE}" stroke-width="1.6" stroke-dasharray="2 2.5"/>""",
     "terminal": f"""<path d="M10 14l7 6-7 6" fill="none" stroke="{BLUE}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
       <rect class="cursor" x="20" y="25" width="11" height="2.8" rx="1.2" fill="{BLUE}"/>""",
+    "escape": f"""<rect x="31" y="7" width="5" height="26" rx="1" fill="{GREEN}" fill-opacity=".55"/>
+      <rect x="5" y="23" width="8" height="8" rx="1" fill="{YELLOW}"/>
+      <rect class="bounce" x="15" y="8" width="6" height="6" rx="1" fill="{RED}"/>
+      <rect class="bounce" style="animation-delay:-.6s" x="23" y="8" width="6" height="6" rx="1" fill="{CYAN}"/>""",
+    "flame": f"""<path class="flicker" d="M20 6c1.5 5 9 8.5 9 17a9 9 0 0 1-18 0c0-4.5 2.5-7 4-9 .6 3 2 4.5 4 5-1.2-4.6-.6-9.2 1-13Z" fill="url(#flame)"/>
+      <path class="flicker" style="animation-delay:-.4s" d="M20 19c1 2.6 4 4 4 7.5a4 4 0 0 1-8 0c0-2 1-3.2 2-4.2.4 1.2 1 1.8 2 2-.5-1.8-.4-3.6 0-5.3Z" fill="{YELLOW}"/>""",
     "eq": "".join(
         f'<rect class="eq" style="animation-delay:{d}s" x="{x}" y="9" width="4" height="22" rx="2" fill="{c}"/>'
         for x, d, c in [(8, 0, ORANGE), (14, .25, RED), (20, .5, ORANGE), (26, .15, RED), (32, .4, ORANGE)]
@@ -215,6 +221,8 @@ def card(fname, icon, accent, pill, title, subtitle, lines, chips=None, link=Non
     px = W - 22 - pw
     if pill_kind == "star":
         mark = f'<path transform="translate({px + 16:.1f},42) scale(.7) translate(-8,-8.4)" d="M8 0l2.4 5 5.6.8-4 3.9 1 5.5L8 12.6 3 15.2l1-5.5-4-3.9L5.6 5Z" fill="{pill_color}"/>'
+    elif pill_kind == "play":
+        mark = f'<path d="M{px + 12:.1f} 37l9 5-9 5Z" fill="{pill_color}"/>'
     else:
         mark = f'<circle class="pulse" cx="{px + 16:.1f}" cy="42" r="4.5" fill="{pill_color}"/>'
 
@@ -243,10 +251,15 @@ def card(fname, icon, accent, pill, title, subtitle, lines, chips=None, link=Non
   <defs>
     <clipPath id="frame"><rect width="{W}" height="{H}" rx="14"/></clipPath>
     <radialGradient id="glow" cx="0" cy="0" r=".9"><stop offset="0" stop-color="{accent}" stop-opacity=".16"/><stop offset="1" stop-color="{accent}" stop-opacity="0"/></radialGradient>
+    <linearGradient id="flame" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="{RED}"/><stop offset="1" stop-color="{ORANGE}"/></linearGradient>
   </defs>
   <style>{BASE_CSS}
     .eq {{ transform-box: fill-box; transform-origin: bottom; animation: eq 1.1s ease-in-out infinite alternate; }}
     @keyframes eq {{ 0% {{ transform: scaleY(.25); }} 100% {{ transform: scaleY(1); }} }}
+    .bounce {{ animation: bounce 1.2s ease-in-out infinite alternate; }}
+    @keyframes bounce {{ to {{ transform: translateY(18px); }} }}
+    .flicker {{ transform-box: fill-box; transform-origin: bottom; animation: flicker .9s ease-in-out infinite alternate; }}
+    @keyframes flicker {{ 0% {{ transform: scale(1, 1); }} 100% {{ transform: scale(.94, 1.08); }} }}
     {REDUCED}
   </style>
   <g clip-path="url(#frame)">
@@ -295,6 +308,22 @@ card(
      "I build, from VR experiences to AI models.",
      "Under construction. Shipping soon."],
     link="zaos.dev",
+)
+card(
+    "project-geometry-escape", ICONS["escape"], GREEN, ("CPCRETRODEV 2022", GREEN, "play"),
+    "Geometry Escape", "Amstrad CPC · gameplay & graphics",
+    ["Arcade escape game for the 1984 Amstrad CPC,",
+     "written in Z80 assembly for a 4 MHz CPU",
+     "and 64 KB of RAM. Runs on real hardware."],
+    chips=[("Z80 assembly", YELLOW), ("CPCtelera", CYAN), ("Pixel art", RED)],
+)
+card(
+    "project-hellgeon", ICONS["flame"], RED, ("YEAR-LONG PROJECT", ORANGE, "play"),
+    "Hellgeon", "Team of 5 · built before AI assistants",
+    ["Low-poly 3D bullet hell built from scratch",
+     "over a full year: our own C++ / OpenGL",
+     "engine, gameplay, 3D models and audio."],
+    chips=[("C++", "#f34b7d"), ("OpenGL", "#5586A4"), ("Blender", "#F5792A"), ("Win + Linux", FG)],
 )
 card(
     "project-boxbeats", ICONS["eq"], ORANGE, ("GRADE 9/10", YELLOW, "star"),
