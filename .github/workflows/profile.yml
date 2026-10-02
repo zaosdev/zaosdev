@@ -1,0 +1,62 @@
+name: Update profile cards
+
+# Generates the stats, top-languages and contribution-snake SVGs and publishes
+# them to the `output` branch, which the README reads from.
+#
+# Private repos are only counted when the GH_STATS_TOKEN secret is set
+# (classic PAT with `repo` + `read:user` scopes). Without it, the cards fall
+# back to GITHUB_TOKEN and show public data only.
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # daily at 03:00 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-cards
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: "username=${{ github.repository_owner }}&show_icons=true&theme=tokyonight&hide_border=true&border_radius=12&include_all_commits=true&hide_rank=true&hide=stars,issues"
+          path: dist/stats.svg
+          token: ${{ secrets.GH_STATS_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Top languages card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: "username=${{ github.repository_owner }}&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&border_radius=12&hide=html,css,scss,makefile,dockerfile&size_weight=0.5&count_weight=0.5"
+          path: dist/top-langs.svg
+          token: ${{ secrets.GH_STATS_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Contribution snake
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake.svg
+            dist/snake-dark.svg?palette=github-dark&color_snake=#7aa2f7&color_dots=#161b22,#1f2a4d,#2f437a,#3d59a1,#7aa2f7
+
+      - name: Publish to the output branch
+        uses: crazy-max/ghaction-github-pages@v5
+        with:
+          target_branch: output
+          build_dir: dist
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
