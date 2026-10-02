@@ -3,9 +3,9 @@ name: Update profile cards
 # Generates the stats, top-languages and contribution-snake SVGs and publishes
 # them to the `output` branch, which the README reads from.
 #
-# Private repos are only counted when the GH_STATS_TOKEN secret is set
-# (classic PAT with `repo` + `read:user` scopes). Without it, the cards fall
-# back to GITHUB_TOKEN and show public data only.
+# Private and organization repos are only counted when the GH_STATS_TOKEN
+# secret is set (classic PAT with `repo`, `read:user` and `read:org` scopes).
+# Without it, the cards fall back to GITHUB_TOKEN and show public data only.
 
 on:
   schedule:
@@ -32,7 +32,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          options: "username=${{ github.repository_owner }}&show_icons=true&theme=tokyonight&hide_border=true&border_radius=12&include_all_commits=true&hide_rank=true&hide=stars,issues"
+          options: "username=${{ github.repository_owner }}&show_icons=true&theme=tokyonight&hide_border=true&border_radius=12&include_all_commits=true&hide_rank=true&hide=stars,issues&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR"
           path: dist/stats.svg
           token: ${{ secrets.GH_STATS_TOKEN || secrets.GITHUB_TOKEN }}
 
@@ -40,7 +40,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: top-langs
-          options: "username=${{ github.repository_owner }}&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&border_radius=12&hide=html,css,scss,makefile,dockerfile&size_weight=0.5&count_weight=0.5"
+          options: "username=${{ github.repository_owner }}&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&border_radius=12&hide=html,css,scss,less,php,makefile,dockerfile&size_weight=0.5&count_weight=0.5&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR"
           path: dist/top-langs.svg
           token: ${{ secrets.GH_STATS_TOKEN || secrets.GITHUB_TOKEN }}
 
