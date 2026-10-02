@@ -1,11 +1,11 @@
 name: Update profile cards
 
-# Generates the stats, top-languages and contribution-snake SVGs and publishes
+# Generates the activity, top-languages and contribution-snake SVGs and publishes
 # them to the `output` branch, which the README reads from.
 #
-# Private and organization repos are only counted when the GH_STATS_TOKEN
-# secret is set (classic PAT with `repo`, `read:user` and `read:org` scopes).
-# Without it, the cards fall back to GITHUB_TOKEN and show public data only.
+# Private and organization work is only counted when the GH_STATS_TOKEN secret
+# is set (classic PAT with `repo`, `read:user` and `read:org` scopes). Without
+# it, everything falls back to GITHUB_TOKEN and shows public data only.
 
 on:
   schedule:
@@ -28,26 +28,17 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Stats card
-        uses: stats-organization/github-readme-stats-action@v2
-        with:
-          card: stats
-          options: "username=${{ github.repository_owner }}&show_icons=true&theme=tokyonight&hide_border=true&border_radius=12&include_all_commits=true&hide_rank=true&hide=stars,issues&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR"
-          path: dist/stats.svg
-          token: ${{ secrets.GH_STATS_TOKEN || secrets.GITHUB_TOKEN }}
-
-      - name: Top languages card
-        uses: stats-organization/github-readme-stats-action@v2
-        with:
-          card: top-langs
-          options: "username=${{ github.repository_owner }}&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&border_radius=12&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR"
-          path: dist/top-langs.svg
-          token: ${{ secrets.GH_STATS_TOKEN || secrets.GITHUB_TOKEN }}
+      - name: Activity and languages cards
+        run: python3 .github/scripts/profile_cards.py dist
+        env:
+          GH_TOKEN: ${{ secrets.GH_STATS_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_USER: ${{ github.repository_owner }}
 
       - name: Contribution snake
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
+          github_token: ${{ secrets.GH_STATS_TOKEN || secrets.GITHUB_TOKEN }}
           outputs: |
             dist/snake.svg
             dist/snake-dark.svg?palette=github-dark&color_snake=#7aa2f7&color_dots=#161b22,#1f2a4d,#2f437a,#3d59a1,#7aa2f7
