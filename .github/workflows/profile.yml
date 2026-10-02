@@ -40,7 +40,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: top-langs
-          options: "username=${{ github.repository_owner }}&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&border_radius=12&hide=html,css,scss,less,php,makefile,dockerfile&size_weight=0.5&count_weight=0.5&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR"
+          options: "username=${{ github.repository_owner }}&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&border_radius=12&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR"
           path: dist/top-langs.svg
           token: ${{ secrets.GH_STATS_TOKEN || secrets.GITHUB_TOKEN }}
 
