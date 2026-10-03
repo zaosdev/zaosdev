@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="452" height="236" viewBox="-6 -6 452 236" role="img" aria-labelledby="title desc">
+  <title id="title">Most Used Languages</title>
+  <desc id="desc">Languages weighted by my commits: TypeScript 24.6%, JavaScript 20.4%, C++ 18.6%, HTML 9.5%, Makefile 6.5%, C 5.4%, CSS 3.3%, Other 11.7%</desc>
+  <style>
+    .sans { font-family: 'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, 'JetBrains Mono', 'Cascadia Code', Menlo, Consolas, monospace; }
+    /* visible by default; the animation only plays the entrance, so static renderers still show everything */
+    .fade { animation: fade .5s ease-out backwards; }
+    @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+    .grow { transform-box: fill-box; transform-origin: left; animation: grow .9s ease-out backwards; } @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <rect x=".5" y=".5" width="439" height="223" rx="14" fill="#1a1b27" stroke="#292e42"/>
+  <text x="24" y="42" class="sans" font-size="21" font-weight="600" fill="#7aa2f7">Most Used Languages</text>
+  <text x="416" y="42" text-anchor="end" class="mono" font-size="12.5" fill="#737aa2">by my commits</text>
+  <defs><clipPath id="bar"><rect x="24" y="62" width="392" height="9" rx="4.5"/></clipPath></defs><rect x="24" y="62" width="392" height="9" rx="4.5" fill="#292e42"/><g clip-path="url(#bar)"><g class="grow"><rect x="24.00" y="62" width="96.85" height="9" fill="#3178c6"/><rect x="120.35" y="62" width="80.45" height="9" fill="#f1e05a"/><rect x="200.30" y="62" width="73.54" height="9" fill="#f34b7d"/><rect x="273.33" y="62" width="37.90" height="9" fill="#e34c26"/><rect x="310.74" y="62" width="26.01" height="9" fill="#427819"/><rect x="336.25" y="62" width="21.80" height="9" fill="#555555"/><rect x="357.54" y="62" width="13.27" height="9" fill="#663399"/><rect x="370.32" y="62" width="46.18" height="9" fill="#414868"/></g></g>
+  <g class="fade" style="animation-delay:0.30s"><circle cx="30.0" cy="104.5" r="6" fill="#3178c6"/><text x="44.0" y="110" class="sans" font-size="16" fill="#a9b1d6">TypeScript <tspan class="mono" font-size="13.5" fill="#737aa2">24.6%</tspan></text></g>
+  <g class="fade" style="animation-delay:0.36s"><circle cx="234.0" cy="104.5" r="6" fill="#f1e05a"/><text x="248.0" y="110" class="sans" font-size="16" fill="#a9b1d6">JavaScript <tspan class="mono" font-size="13.5" fill="#737aa2">20.4%</tspan></text></g>
+  <g class="fade" style="animation-delay:0.42s"><circle cx="30.0" cy="134.5" r="6" fill="#f34b7d"/><text x="44.0" y="140" class="sans" font-size="16" fill="#a9b1d6">C++ <tspan class="mono" font-size="13.5" fill="#737aa2">18.6%</tspan></text></g>
+  <g class="fade" style="animation-delay:0.48s"><circle cx="234.0" cy="134.5" r="6" fill="#e34c26"/><text x="248.0" y="140" class="sans" font-size="16" fill="#a9b1d6">HTML <tspan class="mono" font-size="13.5" fill="#737aa2">9.5%</tspan></text></g>
+  <g class="fade" style="animation-delay:0.54s"><circle cx="30.0" cy="164.5" r="6" fill="#427819"/><text x="44.0" y="170" class="sans" font-size="16" fill="#a9b1d6">Makefile <tspan class="mono" font-size="13.5" fill="#737aa2">6.5%</tspan></text></g>
+  <g class="fade" style="animation-delay:0.60s"><circle cx="234.0" cy="164.5" r="6" fill="#555555"/><text x="248.0" y="170" class="sans" font-size="16" fill="#a9b1d6">C <tspan class="mono" font-size="13.5" fill="#737aa2">5.4%</tspan></text></g>
+  <g class="fade" style="animation-delay:0.66s"><circle cx="30.0" cy="194.5" r="6" fill="#663399"/><text x="44.0" y="200" class="sans" font-size="16" fill="#a9b1d6">CSS <tspan class="mono" font-size="13.5" fill="#737aa2">3.3%</tspan></text></g>
+  <g class="fade" style="animation-delay:0.72s"><circle cx="234.0" cy="194.5" r="6" fill="#414868"/><text x="248.0" y="200" class="sans" font-size="16" fill="#a9b1d6">Other <tspan class="mono" font-size="13.5" fill="#737aa2">11.7%</tspan></text></g>
+</svg>
