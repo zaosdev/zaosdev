@@ -39,6 +39,7 @@ const zaos = {
     at: "University of Alicante",
   },
   currently: "Sole engineer @ Vidareal",
+  mentor: "Internship tutor",
   focus: [
     "Web & Mobile",
     "3D / VR",
@@ -68,6 +69,8 @@ const zaos = {
 <!-- Fixed-width cards: two per row on desktop, one per row on phones -->
 <p align="center">
   <a href="https://vidareal.es"><img src="assets/project-vidareal.svg" width="400" alt="Vidareal: VR cognitive-stimulation platform for elderly care on Meta Quest and Pico, with real-time multi-headset control and Mux video streaming"/></a>
+  <img src="assets/project-laundry.svg" width="400" alt="Laundry and Linen: mobile app for daily bed-linen and laundry control; I tutored the intern team, reviewed their pull requests and led the final rework"/>
+  <img src="assets/project-stock.svg" width="400" alt="Stock Control: mobile inventory app; I tutored the interns who started it and rebuilt most of it in the final phase"/>
   <img src="assets/project-tfm.svg" width="400" alt="MSc thesis, graded 10/10: deep learning architectures for stock price prediction"/>
 </p>
 

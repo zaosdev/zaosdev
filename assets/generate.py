@@ -207,6 +207,13 @@ ICONS = {
       <path class="flicker" style="animation-delay:-.4s" d="M20 19c1 2.6 4 4 4 7.5a4 4 0 0 1-8 0c0-2 1-3.2 2-4.2.4 1.2 1 1.8 2 2-.5-1.8-.4-3.6 0-5.3Z" fill="{YELLOW}"/>""",
     "crosshair": f"""<path d="M9 33V15a11 11 0 0 1 22 0v18" fill="none" stroke="{PURPLE}" stroke-width="2" stroke-opacity=".7"/>
       <g class="pulse"><path d="M20 10l2.2 7.8L30 20l-7.8 2.2L20 30l-2.2-7.8L10 20l7.8-2.2Z" fill="{CYAN}"/><circle cx="20" cy="20" r="2" fill="{BG}"/></g>""",
+    "boxes": f"""<g fill="{YELLOW}" fill-opacity=".18" stroke="{YELLOW}" stroke-width="1.8" stroke-linejoin="round">
+      <rect x="6" y="20" width="13" height="12" rx="1.5"/><rect x="21" y="20" width="13" height="12" rx="1.5"/><rect x="13.5" y="8" width="13" height="12" rx="1.5"/></g>
+      <g stroke="{YELLOW}" stroke-width="1.6"><line x1="10.5" y1="20" x2="10.5" y2="24"/><line x1="25.5" y1="20" x2="25.5" y2="24"/><line x1="18" y1="8" x2="18" y2="12"/></g>""",
+    "washer": f"""<rect x="8" y="6" width="24" height="28" rx="4" fill="none" stroke="{BLUE}" stroke-width="2"/>
+      <line x1="8" y1="12" x2="32" y2="12" stroke="{BLUE}" stroke-width="1.6"/><circle cx="13" cy="9" r="1.2" fill="{BLUE}"/>
+      <circle cx="20" cy="22" r="7" fill="none" stroke="{BLUE}" stroke-width="2"/>
+      <path class="pulse" d="M14.5 23c2-2 4 2 6 0s4 2 5.5 0" fill="none" stroke="{CYAN}" stroke-width="1.6" stroke-linecap="round"/>""",
     "eq": "".join(
         f'<rect class="eq" style="animation-delay:{d}s" x="{x}" y="9" width="4" height="22" rx="2" fill="{c}"/>'
         for x, d, c in [(8, 0, ORANGE), (14, .25, RED), (20, .5, ORANGE), (26, .15, RED), (32, .4, ORANGE)]
@@ -223,6 +230,9 @@ def card(fname, icon, accent, pill, title, subtitle, lines, chips=None, link=Non
     px = W - 22 - pw
     if pill_kind == "star":
         mark = f'<path transform="translate({px + 16:.1f},42) scale(.7) translate(-8,-8.4)" d="M8 0l2.4 5 5.6.8-4 3.9 1 5.5L8 12.6 3 15.2l1-5.5-4-3.9L5.6 5Z" fill="{pill_color}"/>'
+    elif pill_kind == "lock":
+        mark = (f'<path d="M{px + 13:.1f} 41v-2.5a3 3 0 0 1 6 0V41" fill="none" stroke="{pill_color}" stroke-width="1.6"/>'
+                f'<rect x="{px + 11:.1f}" y="41" width="10" height="7" rx="1.5" fill="{pill_color}"/>')
     elif pill_kind == "play":
         mark = f'<path d="M{px + 12:.1f} 37l9 5-9 5Z" fill="{pill_color}"/>'
     else:
@@ -302,6 +312,22 @@ card(
      "price prediction, trained on large-scale",
      "historical time series and benchmarked."],
     chips=[("Python", "#4B8BBE"), ("PyTorch", "#EE4C2C"), ("pandas", "#FFCA00"), ("Time series", PURPLE)],
+)
+card(
+    "project-laundry", ICONS["washer"], BLUE, ("CLIENT PROJECT", BLUE, "lock"),
+    "Laundry & Linen", "Bed-linen control · internship tutor",
+    ["Mobile app to control bed linen and laundry",
+     "day by day. I reviewed the interns' PRs as",
+     "their tutor, then led the final rework."],
+    chips=[("Expo", FG), ("NativeWind", "#38BDF8"), ("Hono", ORANGE), ("PostgreSQL", "#6FA8DC")],
+)
+card(
+    "project-stock", ICONS["boxes"], YELLOW, ("CLIENT PROJECT", YELLOW, "lock"),
+    "Stock Control", "Inventory app · internship tutor",
+    ["Mobile inventory app with secure logins.",
+     "I reviewed the interns' PRs as their tutor,",
+     "then rebuilt most of it in the final phase."],
+    chips=[("Expo", FG), ("React Native", "#61DAFB"), ("Bun", "#FBF0DF"), ("Drizzle", GREEN)],
 )
 card(
     "project-geometry-escape", ICONS["escape"], GREEN, ("CPCRETRODEV 2022", GREEN, "play"),
