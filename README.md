@@ -69,10 +69,24 @@ const zaos = {
 <p align="center">
   <a href="https://vidareal.es"><img src="assets/project-vidareal.svg" width="400" alt="Vidareal: VR cognitive-stimulation platform for elderly care on Meta Quest and Pico, with real-time multi-headset control and Mux video streaming"/></a>
   <img src="assets/project-tfm.svg" width="400" alt="MSc thesis, graded 10/10: deep learning architectures for stock price prediction"/>
+</p>
+
+<br/>
+
+<!-- ═══════════════════════════════  GAME DEV  ═══════════════════════════════ -->
+
+## 🎮 Game dev
+
+<p align="center">
+  The projects with the most soul: games built from scratch with my university teams,<br/>
+  from Z80 assembly to our own ECS engines in C++, before AI assistants existed.
+</p>
+
+<p align="center">
   <a href="https://triplefail.itch.io/geometry-escape"><img src="assets/project-geometry-escape.svg" width="400" alt="Geometry Escape: arcade escape game for the Amstrad CPC written in Z80 assembly, CPCRetroDev 2022 entry"/></a>
+  <a href="https://snakeleyenda.itch.io/hellroom"><img src="assets/project-hellroom.svg" width="400" alt="Hellroom: top-down bullet hell in C++20 and SFML on our own ECS engine; I built the enemy A* pathfinding and the camera"/></a>
   <a href="https://purplesprite.itch.io/hellgeon"><img src="assets/project-hellgeon.svg" width="400" alt="Hellgeon: low-poly 3D bullet hell built from scratch by a team of 5 with a custom C++/OpenGL engine"/></a>
   <a href="https://rua.ua.es/entities/publication/ee6fe8af-ed5b-4bf1-a063-3dae75d93c02"><img src="assets/project-boxbeats.svg" width="400" alt="Box Beats, BSc thesis graded 9/10: Beat Saber-inspired VR rhythm game built in Unreal Engine 5"/></a>
-  <a href="https://zaos.dev"><img src="assets/project-zaosdev.svg" width="400" alt="zaos.dev: personal portfolio and project hub, in development"/></a>
 </p>
 
 <br/>

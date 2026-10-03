@@ -205,6 +205,8 @@ ICONS = {
       <rect class="bounce" style="animation-delay:-.6s" x="23" y="8" width="6" height="6" rx="1" fill="{CYAN}"/>""",
     "flame": f"""<path class="flicker" d="M20 6c1.5 5 9 8.5 9 17a9 9 0 0 1-18 0c0-4.5 2.5-7 4-9 .6 3 2 4.5 4 5-1.2-4.6-.6-9.2 1-13Z" fill="url(#flame)"/>
       <path class="flicker" style="animation-delay:-.4s" d="M20 19c1 2.6 4 4 4 7.5a4 4 0 0 1-8 0c0-2 1-3.2 2-4.2.4 1.2 1 1.8 2 2-.5-1.8-.4-3.6 0-5.3Z" fill="{YELLOW}"/>""",
+    "crosshair": f"""<path d="M9 33V15a11 11 0 0 1 22 0v18" fill="none" stroke="{PURPLE}" stroke-width="2" stroke-opacity=".7"/>
+      <g class="pulse"><path d="M20 10l2.2 7.8L30 20l-7.8 2.2L20 30l-2.2-7.8L10 20l7.8-2.2Z" fill="{CYAN}"/><circle cx="20" cy="20" r="2" fill="{BG}"/></g>""",
     "eq": "".join(
         f'<rect class="eq" style="animation-delay:{d}s" x="{x}" y="9" width="4" height="22" rx="2" fill="{c}"/>'
         for x, d, c in [(8, 0, ORANGE), (14, .25, RED), (20, .5, ORANGE), (26, .15, RED), (32, .4, ORANGE)]
@@ -302,20 +304,20 @@ card(
     chips=[("Python", "#4B8BBE"), ("PyTorch", "#EE4C2C"), ("pandas", "#FFCA00"), ("Time series", PURPLE)],
 )
 card(
-    "project-zaosdev", ICONS["terminal"], BLUE, ("IN DEVELOPMENT", BLUE, "dot"),
-    "zaos.dev", "Portfolio & project hub",
-    ["My portfolio and the home for everything",
-     "I build, from VR experiences to AI models.",
-     "Under construction. Shipping soon."],
-    link="zaos.dev",
-)
-card(
     "project-geometry-escape", ICONS["escape"], GREEN, ("CPCRETRODEV 2022", GREEN, "play"),
     "Geometry Escape", "Amstrad CPC · gameplay & graphics",
     ["Arcade escape game for the 1984 Amstrad CPC,",
      "written in Z80 assembly for a 4 MHz CPU",
      "and 64 KB of RAM. Runs on real hardware."],
     chips=[("Z80 assembly", YELLOW), ("CPCtelera", CYAN), ("Pixel art", RED)],
+)
+card(
+    "project-hellroom", ICONS["crosshair"], PURPLE, ("PLAY ON ITCH.IO", CYAN, "play"),
+    "Hellroom", "Team of 5 · C++20 / SFML · 2023",
+    ["Top-down bullet hell where every room locks",
+     "you in until its enemies are dead. I built",
+     "the enemy A* pathfinding and the camera."],
+    chips=[("C++", "#f34b7d"), ("SFML", "#8CC445"), ("ECS", PURPLE), ("A* pathfinding", CYAN)],
 )
 card(
     "project-hellgeon", ICONS["flame"], RED, ("YEAR-LONG PROJECT", ORANGE, "play"),
