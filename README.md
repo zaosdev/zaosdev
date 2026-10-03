@@ -117,11 +117,10 @@ const zaos = {
   </tr>
   <tr>
     <td align="center">
-      <b>🥽 3D &amp; XR</b><br/>
+      <b>🧊 3D</b><br/>
       <img src="https://img.shields.io/badge/A--Frame-EF2D5E?style=for-the-badge&logo=aframe&logoColor=white" alt="A-Frame"/>
       <img src="https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white" alt="Three.js"/>
       <img src="https://img.shields.io/badge/Unreal_Engine_5-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white" alt="Unreal Engine 5"/>
-      <img src="https://img.shields.io/badge/Meta_Quest-0467DF?style=for-the-badge&logo=meta&logoColor=white" alt="Meta Quest"/>
     </td>
   </tr>
   <tr>
