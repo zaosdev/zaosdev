@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="452" height="236" viewBox="-6 -6 452 236" role="img" aria-labelledby="title desc">
+  <title id="title">GitHub Activity</title>
+  <desc id="desc">Commits: 1.7k, Contributions: 1.8k, Repositories: 39, Current streak: 0 days, Longest streak: 15 days, Coding since: 2020</desc>
+  <style>
+    .sans { font-family: 'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, 'JetBrains Mono', 'Cascadia Code', Menlo, Consolas, monospace; }
+    /* visible by default; the animation only plays the entrance, so static renderers still show everything */
+    .fade { animation: fade .5s ease-out backwards; }
+    @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+    
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <rect x=".5" y=".5" width="439" height="223" rx="14" fill="#1a1b27" stroke="#292e42"/>
+  <text x="24" y="42" class="sans" font-size="21" font-weight="600" fill="#7aa2f7">GitHub Activity</text>
+  <text x="416" y="42" text-anchor="end" class="mono" font-size="12.5" fill="#737aa2">since 2020 · incl. private</text>
+  <g class="fade" style="animation-delay:0.10s"><text x="24.0" y="108" class="sans" font-size="31" font-weight="700" fill="#7aa2f7">1.7k</text><text x="24.0" y="131" class="mono" font-size="12.5" letter-spacing=".3" fill="#737aa2">COMMITS</text></g>
+  <g class="fade" style="animation-delay:0.18s"><text x="154.7" y="108" class="sans" font-size="31" font-weight="700" fill="#7dcfff">1.8k</text><text x="154.7" y="131" class="mono" font-size="12.5" letter-spacing=".3" fill="#737aa2">CONTRIBUTIONS</text></g>
+  <g class="fade" style="animation-delay:0.26s"><text x="285.3" y="108" class="sans" font-size="31" font-weight="700" fill="#bb9af7">39</text><text x="285.3" y="131" class="mono" font-size="12.5" letter-spacing=".3" fill="#737aa2">REPOSITORIES</text></g>
+  <g class="fade" style="animation-delay:0.34s"><text x="24.0" y="182" class="sans" font-size="31" font-weight="700" fill="#9ece6a">0<tspan font-size="15" font-weight="400" fill="#737aa2"> days</tspan></text><text x="24.0" y="205" class="mono" font-size="12.5" letter-spacing=".3" fill="#737aa2">CURRENT STREAK</text></g>
+  <g class="fade" style="animation-delay:0.42s"><text x="154.7" y="182" class="sans" font-size="31" font-weight="700" fill="#ff9e64">15<tspan font-size="15" font-weight="400" fill="#737aa2"> days</tspan></text><text x="154.7" y="205" class="mono" font-size="12.5" letter-spacing=".3" fill="#737aa2">LONGEST STREAK</text></g>
+  <g class="fade" style="animation-delay:0.50s"><text x="285.3" y="182" class="sans" font-size="31" font-weight="700" fill="#e0af68">2020</text><text x="285.3" y="205" class="mono" font-size="12.5" letter-spacing=".3" fill="#737aa2">CODING SINCE</text></g>
+</svg>
